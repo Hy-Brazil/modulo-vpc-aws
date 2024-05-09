@@ -3,6 +3,8 @@ resource "aws_vpc" "vpc-homo" {
 
   tags = {
     Name = "vpc-${var.environment}"
+    owner       = "romulo"
+    managed-by  = "terraform"
   }
 }
 
@@ -13,6 +15,8 @@ resource "aws_subnet" "subnet03" {
 
   tags = {
     Name = "subnet03-${var.environment}"
+    owner       = "romulo"
+    managed-by  = "terraform"
   }
 }
 
@@ -23,6 +27,8 @@ resource "aws_subnet" "subnet04" {
 
   tags = {
     Name = "subnet04-prv-${var.environment}"
+    owner       = "romulo"
+    managed-by  = "terraform"
   }
 }
 
@@ -33,6 +39,8 @@ resource "aws_subnet" "subnet05" {
 
   tags = {
     Name = "subnet05-prv-${var.environment}"
+    owner       = "romulo"
+    managed-by  = "terraform"
   }
 }
 
@@ -43,6 +51,8 @@ resource "aws_subnet" "subnet06" {
 
   tags = {
     Name = "subnet06-prv-${var.environment}"
+    owner       = "romulo"
+    managed-by  = "terraform"
   }
 }
 
@@ -52,6 +62,8 @@ resource "aws_internet_gateway" "internet_gateway" {
 
   tags = {
     Name = "internet-gateway-${var.environment}"
+    owner       = "romulo"
+    managed-by  = "terraform"
   }
 }
 
@@ -65,6 +77,8 @@ resource "aws_route_table" "route_table" {
 
   tags = {
     Name = "route-table-${var.environment}"
+    owner       = "romulo"
+    managed-by  = "terraform"
   }
 }
 
@@ -174,6 +188,8 @@ resource "aws_security_group" "security_group_02" {
 
   tags = {
     Name = "security-group02-${var.environment}"
+    owner       = "romulo"
+    managed-by  = "terraform"
   }
 }
 
@@ -200,6 +216,8 @@ resource "aws_security_group" "seurity_group_05" {
 
   tags = {
     Name = "security-group05-${var.environment}"
+    owner       = "romulo"
+    managed-by  = "terraform"
   }
 }
 
@@ -209,5 +227,7 @@ resource "aws_db_subnet_group" "subnet_group_rds" {
 
   tags = {
     Name = "db-subnet-group-name-${var.environment}"
+    owner       = "romulo"
+    managed-by  = "terraform"
   }
 }
