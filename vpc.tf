@@ -235,14 +235,3 @@ resource "aws_security_group" "seurity_group_05" {
     managed-by = "terraform"
   }
 }
-
-resource "aws_db_subnet_group" "subnet_group_rds" {
-  description = "Created from the RDS Homolog Management Console"
-  subnet_ids  = [aws_subnet.subnet04.id, aws_subnet.subnet05.id, aws_subnet.subnet06.id]
-
-  tags = {
-    Name       = "db-subnet-group-name-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
-  }
-}
