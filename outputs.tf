@@ -1,3 +1,7 @@
+output "subnet2_id" {
+  description = "Id da Subnet 02"
+  value = aws_subnet.subnet02.id
+}
 output "subnet3_id" {
   description = "Id da Subnet 03"
   value = aws_subnet.subnet03.id

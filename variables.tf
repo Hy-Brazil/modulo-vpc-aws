@@ -23,6 +23,10 @@ variable "cidr_subnet6" {
     type        = string  
 }
 
+variable "cidr_subnet2" {
+    description = "CIDR da Subnet2 na AWS"
+    type        = string  
+}
 
 variable "environment" {
     description = "Ambiente dos recursos criados"

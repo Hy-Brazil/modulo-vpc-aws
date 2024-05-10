@@ -8,6 +8,16 @@ resource "aws_vpc" "vpc-homo" {
   }
 }
 
+resource "aws_subnet" "subnet02" {
+  vpc_id     = aws_vpc.vpc-homo.id
+  cidr_block = var.cidr_subnet2
+  availability_zone = "us-east-1b"
+
+  tags = {
+    Name = "subnet02-${var.environment}"
+  }
+}
+
 resource "aws_subnet" "subnet03" {
   vpc_id     = aws_vpc.vpc-homo.id
   cidr_block = var.cidr_subnet3
