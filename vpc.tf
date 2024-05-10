@@ -1,5 +1,6 @@
 resource "aws_vpc" "vpc-homo" {
   cidr_block = var.cidr_vpc
+  enable_dns_hostnames = "enable"
 
   tags = {
     Name       = "vpc-${var.environment}"
