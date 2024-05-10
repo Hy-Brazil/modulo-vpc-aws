@@ -241,3 +241,17 @@ resource "aws_db_subnet_group" "subnet_group_rds" {
     managed-by = "terraform"
   }
 }
+
+resource "aws_db_subnet_group" "subnet_group_rds" {
+  depends_on = [ 
+    aws_subnet.subnet02,
+    aws_subnet.subnet03
+  ]
+  name       = "subnet-group-rds"
+  subnet_ids = [aws_subnet.subnet02, aws_subnet.subnet03]
+
+  tags = {
+    owner      = "romulo"
+    managed-by = "terraform"
+  }
+}
