@@ -92,6 +92,11 @@ resource "aws_route_table" "route_table" {
   }
 }
 
+resource "aws_route_table_association" "rta2" {
+  subnet_id      = aws_subnet.subnet02.id
+  route_table_id = aws_route_table.route_table.id
+}
+
 resource "aws_route_table_association" "rta3" {
   subnet_id      = aws_subnet.subnet03.id
   route_table_id = aws_route_table.route_table.id
@@ -237,20 +242,6 @@ resource "aws_db_subnet_group" "subnet_group_rds" {
 
   tags = {
     Name       = "db-subnet-group-name-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
-  }
-}
-
-resource "aws_db_subnet_group" "subnet_group_rds" {
-  depends_on = [ 
-    aws_subnet.subnet02,
-    aws_subnet.subnet03
-  ]
-  name       = "subnet-group-rds"
-  subnet_ids = [aws_subnet.subnet02, aws_subnet.subnet03]
-
-  tags = {
     owner      = "romulo"
     managed-by = "terraform"
   }
