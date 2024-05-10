@@ -2,15 +2,15 @@ resource "aws_vpc" "vpc-homo" {
   cidr_block = var.cidr_vpc
 
   tags = {
-    Name = "vpc-${var.environment}"
-    owner       = "romulo"
-    managed-by  = "terraform"
+    Name       = "vpc-${var.environment}"
+    owner      = "romulo"
+    managed-by = "terraform"
   }
 }
 
 resource "aws_subnet" "subnet02" {
-  vpc_id     = aws_vpc.vpc-homo.id
-  cidr_block = var.cidr_subnet2
+  vpc_id            = aws_vpc.vpc-homo.id
+  cidr_block        = var.cidr_subnet2
   availability_zone = "us-east-1b"
 
   tags = {
@@ -19,50 +19,50 @@ resource "aws_subnet" "subnet02" {
 }
 
 resource "aws_subnet" "subnet03" {
-  vpc_id     = aws_vpc.vpc-homo.id
-  cidr_block = var.cidr_subnet3
+  vpc_id            = aws_vpc.vpc-homo.id
+  cidr_block        = var.cidr_subnet3
   availability_zone = "us-east-1c"
 
   tags = {
-    Name = "subnet03-${var.environment}"
-    owner       = "romulo"
-    managed-by  = "terraform"
+    Name       = "subnet03-${var.environment}"
+    owner      = "romulo"
+    managed-by = "terraform"
   }
 }
 
 resource "aws_subnet" "subnet04" {
-  vpc_id     = aws_vpc.vpc-homo.id
-  cidr_block = var.cidr_subnet4
+  vpc_id            = aws_vpc.vpc-homo.id
+  cidr_block        = var.cidr_subnet4
   availability_zone = "us-east-1a"
 
   tags = {
-    Name = "subnet04-prv-${var.environment}"
-    owner       = "romulo"
-    managed-by  = "terraform"
+    Name       = "subnet04-prv-${var.environment}"
+    owner      = "romulo"
+    managed-by = "terraform"
   }
 }
 
 resource "aws_subnet" "subnet05" {
-  vpc_id     = aws_vpc.vpc-homo.id
-  cidr_block = var.cidr_subnet5
+  vpc_id            = aws_vpc.vpc-homo.id
+  cidr_block        = var.cidr_subnet5
   availability_zone = "us-east-1b"
 
   tags = {
-    Name = "subnet05-prv-${var.environment}"
-    owner       = "romulo"
-    managed-by  = "terraform"
+    Name       = "subnet05-prv-${var.environment}"
+    owner      = "romulo"
+    managed-by = "terraform"
   }
 }
 
 resource "aws_subnet" "subnet06" {
-  vpc_id     = aws_vpc.vpc-homo.id
-  cidr_block = var.cidr_subnet6
+  vpc_id            = aws_vpc.vpc-homo.id
+  cidr_block        = var.cidr_subnet6
   availability_zone = "us-east-1c"
 
   tags = {
-    Name = "subnet06-prv-${var.environment}"
-    owner       = "romulo"
-    managed-by  = "terraform"
+    Name       = "subnet06-prv-${var.environment}"
+    owner      = "romulo"
+    managed-by = "terraform"
   }
 }
 
@@ -71,9 +71,9 @@ resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws_vpc.vpc-homo.id
 
   tags = {
-    Name = "internet-gateway-${var.environment}"
-    owner       = "romulo"
-    managed-by  = "terraform"
+    Name       = "internet-gateway-${var.environment}"
+    owner      = "romulo"
+    managed-by = "terraform"
   }
 }
 
@@ -86,9 +86,9 @@ resource "aws_route_table" "route_table" {
   }
 
   tags = {
-    Name = "route-table-${var.environment}"
-    owner       = "romulo"
-    managed-by  = "terraform"
+    Name       = "route-table-${var.environment}"
+    owner      = "romulo"
+    managed-by = "terraform"
   }
 }
 
@@ -184,9 +184,9 @@ resource "aws_security_group" "security_group_02" {
 
   ingress {
     description = "HTTPS"
-    from_port = 443
-    to_port = 443
-    protocol = "tcp"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
   egress {
@@ -197,9 +197,9 @@ resource "aws_security_group" "security_group_02" {
   }
 
   tags = {
-    Name = "security-group02-${var.environment}"
-    owner       = "romulo"
-    managed-by  = "terraform"
+    Name       = "security-group02-${var.environment}"
+    owner      = "romulo"
+    managed-by = "terraform"
   }
 }
 
@@ -225,19 +225,19 @@ resource "aws_security_group" "seurity_group_05" {
   }
 
   tags = {
-    Name = "security-group05-${var.environment}"
-    owner       = "romulo"
-    managed-by  = "terraform"
+    Name       = "security-group05-${var.environment}"
+    owner      = "romulo"
+    managed-by = "terraform"
   }
 }
 
 resource "aws_db_subnet_group" "subnet_group_rds" {
-  description       = "Created from the RDS Homolog Management Console"
-  subnet_ids        = [aws_subnet.subnet04.id, aws_subnet.subnet05.id,aws_subnet.subnet06.id]
+  description = "Created from the RDS Homolog Management Console"
+  subnet_ids  = [aws_subnet.subnet04.id, aws_subnet.subnet05.id, aws_subnet.subnet06.id]
 
   tags = {
-    Name = "db-subnet-group-name-${var.environment}"
-    owner       = "romulo"
-    managed-by  = "terraform"
+    Name       = "db-subnet-group-name-${var.environment}"
+    owner      = "romulo"
+    managed-by = "terraform"
   }
 }
