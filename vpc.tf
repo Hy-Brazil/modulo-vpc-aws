@@ -9,6 +9,16 @@ resource "aws_vpc" "vpc-homo" {
   }
 }
 
+resource "aws_subnet" "subnet01" {
+  vpc_id            = aws_vpc.vpc-homo.id
+  cidr_block        = var.cidr_subnet1
+  availability_zone = "us-east-1a"
+
+  tags = {
+    Name = "subnet02-${var.environment}"
+  }
+}
+
 resource "aws_subnet" "subnet02" {
   vpc_id            = aws_vpc.vpc-homo.id
   cidr_block        = var.cidr_subnet2
@@ -91,6 +101,11 @@ resource "aws_route_table" "route_table" {
     owner      = "romulo"
     managed-by = "terraform"
   }
+}
+
+resource "aws_route_table_association" "rta1" {
+  subnet_id      = aws_subnet.subnet01.id
+  route_table_id = aws_route_table.route_table.id
 }
 
 resource "aws_route_table_association" "rta2" {
@@ -219,7 +234,7 @@ resource "aws_security_group" "seurity_group_05" {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/16", "201.17.157.23/32", "172.31.26.154/32", "172.31.28.100/32", "18.230.146.107/32", "172.31.18.102/32"]
+    cidr_blocks = ["10.0.0.0/16"]
   }
 
   ingress {
@@ -227,7 +242,7 @@ resource "aws_security_group" "seurity_group_05" {
     from_port   = 5432
     to_port     = 5432
     protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/16", "177.42.94.34/32", "191.185.78.56/32", "172.31.26.154/32", "177.42.81.119/32", "191.34.39.253/32", "179.0.73.151/32", "187.111.26.6/32", "172.31.22.123/32", "186.206.255.44/32", "201.17.157.236/32", "179.184.192.19/32", "179.251.108.107/32", "191.35.59.48/32", "201.16.205.241/32", "172.31.29.21/32", "177.55.225.128/32", "187.72.246.105/32"]
+    cidr_blocks = ["10.0.0.0/16"]
   }
 
   tags = {
