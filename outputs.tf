@@ -33,6 +33,11 @@ output "subnet6_id" {
   value       = aws_subnet.subnet06.id
 }
 
+output "security_group01_id" {
+  description = "ID do Security Group"
+  value       = aws_security_group.security_group_01.id
+}
+
 output "security_group02_id" {
   description = "ID do Security Group"
   value       = aws_security_group.security_group_02.id
