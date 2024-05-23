@@ -124,6 +124,21 @@ resource "aws_security_group" "security_group_02" {
   vpc_id      = aws_vpc.vpc-homo.id
 
   ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    security_groups  = [aws_security_group.security_group_01.id]
+  }
+
+  ingress {
+    description = "HTTPS"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    security_groups  = [aws_security_group.security_group_01.id]
+  }
+  ingress {
     description = "RDP"
     from_port   = 3389
     to_port     = 3389
@@ -264,7 +279,7 @@ resource "aws_security_group" "security_group_01" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
+ ingress {
     description = "HTTPS"
     from_port   = 443
     to_port     = 443
@@ -273,7 +288,7 @@ resource "aws_security_group" "security_group_01" {
   }
   egress {
     from_port   = 0
-    to_port     = 0
+    to_port     = 0 
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
