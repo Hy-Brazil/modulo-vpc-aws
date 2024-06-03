@@ -139,14 +139,6 @@ resource "aws_security_group" "security_group_02" {
     security_groups  = [aws_security_group.security_group_01.id]
   }
   ingress {
-    description = "RDP"
-    from_port   = 3389
-    to_port     = 3389
-    protocol    = "tcp"
-    cidr_blocks = ["201.16.205.241/32"]
-  }
-
-  ingress {
     description = "Custom TCP"
     from_port   = 8001
     to_port     = 8001
@@ -160,14 +152,6 @@ resource "aws_security_group" "security_group_02" {
     to_port     = 3001
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    description = "Custom TCP"
-    from_port   = 3001
-    to_port     = 3001
-    protocol    = "tcp"
-    security_groups  = [aws_security_group.security_group_01.id]
   }
 
   ingress {
@@ -294,6 +278,79 @@ resource "aws_security_group" "security_group_01" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    security_groups  = [aws_security_group.security_group_02.id]
+  }
+
+  ingress {
+    description = "HTTPS"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    security_groups  = [aws_security_group.security_group_02.id]
+  }
+
+  ingress {
+    description = "Custom TCP"
+    from_port   = 8001
+    to_port     = 8001
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Custom TCP"
+    from_port   = 3001
+    to_port     = 3001
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Custom TCP"
+    from_port   = 8501
+    to_port     = 8501
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Custom TCP"
+    from_port   = 8000
+    to_port     = 8000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Custom TCP"
+    from_port   = 9000
+    to_port     = 9000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Custom TCP"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Custom TCP"
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0 
