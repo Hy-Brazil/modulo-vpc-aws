@@ -164,6 +164,14 @@ resource "aws_security_group" "security_group_02" {
 
   ingress {
     description = "Custom TCP"
+    from_port   = 3001
+    to_port     = 3001
+    protocol    = "tcp"
+    security_groups  = [aws_security_group.security_group_01.id]
+  }
+
+  ingress {
+    description = "Custom TCP"
     from_port   = 8501
     to_port     = 8501
     protocol    = "tcp"
@@ -230,7 +238,6 @@ resource "aws_security_group" "security_group_02" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
-    security_groups  = [aws_security_group.security_group_01.id]
   }
 
   tags = {
@@ -244,14 +251,6 @@ resource "aws_security_group" "seurity_group_05" {
   name        = "rds-launch-wizard-${var.environment}"
   description = "Permitir acesso a porta 5432"
   vpc_id      = aws_vpc.vpc-homo.id
-
-  ingress {
-    description = "MySQL/Aurora"
-    from_port   = 3306
-    to_port     = 3306
-    protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/16"]
-  }
 
   ingress {
     description = "PostgreSQL"
@@ -272,6 +271,14 @@ resource "aws_security_group" "security_group_01" {
   name        = "launch-wizard-1-${var.environment}"
   description = "Permitir acesso ao load balancer"
   vpc_id      = aws_vpc.vpc-homo.id
+
+  ingress {
+    description = "SSL"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   ingress {
     description = "HTTP"
     from_port   = 80
