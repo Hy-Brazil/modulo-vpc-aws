@@ -1,6 +1,6 @@
 resource "aws_nat_gateway" "gw_nat" {
   subnet_id         = aws_subnet.subnet01.id
-  connectivity_type = "public"
+  connectivity_type = "private"
 
   tags = {
     Name       = "nat-gateway-${var.environment}"
