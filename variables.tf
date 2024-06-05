@@ -43,3 +43,9 @@ variable "route_table_igw" {
   type        = string
   default     = "0.0.0.0/0"
 }
+
+variable "route_table_nat_gw" {
+  description = "Tabela de rota para internet"
+  type        = string
+  default     = "0.0.0.0/0"
+}
