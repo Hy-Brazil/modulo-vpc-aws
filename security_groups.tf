@@ -210,7 +210,7 @@ resource "aws_security_group" "security_group_02" {
 
 resource "aws_security_group" "seurity_group_03" {
   name        = "launch-wizard-3-${var.environment}"
-  description = "Permitir acesso a porta 5432"
+  description = "Permitir acesso a porta 6379"
   vpc_id      = aws_vpc.vpc-homo.id
 
   ingress {
