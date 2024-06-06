@@ -13,7 +13,7 @@ resource "aws_route_table" "route_table" {
   }
 }
 
-resource "aws_route_table" "route_table2" {
+/*resource "aws_route_table" "route_table2" {
   vpc_id = aws_vpc.vpc-homo.id
 
   route {
@@ -26,7 +26,7 @@ resource "aws_route_table" "route_table2" {
     owner      = "romulo"
     managed-by = "terraform"
   }
-}
+}*/
 
 
 resource "aws_route_table_association" "rta1" {
