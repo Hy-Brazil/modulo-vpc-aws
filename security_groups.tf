@@ -208,7 +208,7 @@ resource "aws_security_group" "security_group_02" {
   }
 }
 
-resource "aws_security_group" "seurity_group_03" {
+/*resource "aws_security_group" "seurity_group_03" {
   name        = "launch-wizard-3-${var.environment}"
   description = "Portas liberadas na instancia Jenkins"
   vpc_id      = aws_vpc.vpc-homo.id
@@ -241,7 +241,7 @@ resource "aws_security_group" "seurity_group_03" {
     owner      = "romulo"
     managed-by = "terraform"
   }
-}
+}*/
 
 resource "aws_security_group" "seurity_group_04" {
   name        = "launch-wizard-4-${var.environment}"
