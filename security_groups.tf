@@ -243,6 +243,32 @@ resource "aws_security_group" "seurity_group_03" {
   }
 }
 
+resource "aws_security_group" "seurity_group_04" {
+  name        = "launch-wizard-4-${var.environment}"
+  description = "Portas liberadas na instancia Bastion-Host"
+  vpc_id      = aws_vpc.vpc-homo.id
+
+  ingress {
+    description = "SSL"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/16"]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name       = "security-group04-${var.environment}"
+    owner      = "romulo"
+    managed-by = "terraform"
+  }
+}
+
 resource "aws_security_group" "seurity_group_05" {
   name        = "rds-launch-wizard-${var.environment}"
   description = "Permitir acesso a porta 5432"
