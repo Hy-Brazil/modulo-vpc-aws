@@ -220,6 +220,14 @@ resource "aws_security_group" "seurity_group_03" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  ingress {
+    description = "selenium-grid"
+    from_port   = 4444
+    to_port     = 4444
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   ingress {
     description = "HTTP"
     from_port   = 80
