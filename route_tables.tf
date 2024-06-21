@@ -8,8 +8,10 @@ resource "aws_route_table" "route_table" {
 
   tags = {
     Name       = "route-table-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }
 

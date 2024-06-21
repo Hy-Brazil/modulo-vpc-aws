@@ -90,8 +90,10 @@ resource "aws_security_group" "security_group_01" {
 
   tags = {
     Name       = "security-group01-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }
 
@@ -203,8 +205,10 @@ resource "aws_security_group" "security_group_02" {
 
   tags = {
     Name       = "security-group02-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }
 
@@ -246,8 +250,10 @@ resource "aws_security_group" "seurity_group_03" {
 
   tags = {
     Name       = "security-group03-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }
 
@@ -272,8 +278,10 @@ resource "aws_security_group" "seurity_group_04" {
 
   tags = {
     Name       = "security-group04-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }
 
@@ -292,7 +300,9 @@ resource "aws_security_group" "seurity_group_05" {
 
   tags = {
     Name       = "security-group05-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }

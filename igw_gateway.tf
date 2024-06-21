@@ -3,7 +3,9 @@ resource "aws_internet_gateway" "internet_gateway" {
 
   tags = {
     Name       = "internet-gateway-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }

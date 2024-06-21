@@ -5,6 +5,10 @@ resource "aws_subnet" "subnet01" {
 
   tags = {
     Name = "subnet01-${var.environment}"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }
 
@@ -15,6 +19,10 @@ resource "aws_subnet" "subnet02" {
 
   tags = {
     Name = "subnet02-${var.environment}"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }
 
@@ -25,8 +33,10 @@ resource "aws_subnet" "subnet03" {
 
   tags = {
     Name       = "subnet03-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }
 
@@ -37,8 +47,10 @@ resource "aws_subnet" "subnet04" {
 
   tags = {
     Name       = "subnet04-prv-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }
 
@@ -49,8 +61,10 @@ resource "aws_subnet" "subnet05" {
 
   tags = {
     Name       = "subnet05-prv-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }
 
@@ -61,7 +75,9 @@ resource "aws_subnet" "subnet06" {
 
   tags = {
     Name       = "subnet06-prv-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }

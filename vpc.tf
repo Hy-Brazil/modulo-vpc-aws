@@ -4,7 +4,9 @@ resource "aws_vpc" "vpc-homo" {
 
   tags = {
     Name       = "vpc-${var.environment}"
-    owner      = "romulo"
-    managed-by = "terraform"
+    Owner      = "romulo"
+    Managed-by = "terraform"
+    Environment = "homolog"
+    Datadog = "false"
   }
 }
