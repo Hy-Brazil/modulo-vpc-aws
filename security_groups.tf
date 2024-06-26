@@ -1,6 +1,6 @@
 resource "aws_security_group" "security_group_01" {
-  name        = "launch-wizard-1-${var.environment}"
-  description = "Permitir acesso ao load balancer"
+  name        = "sg-alb-jenkins-${var.environment}"
+  description = "Permitir acesso ao load balancer jenkins"
   vpc_id      = aws_vpc.vpc-homo.id
 
   ingress {
@@ -33,7 +33,7 @@ resource "aws_security_group" "security_group_01" {
   }
 
   tags = {
-    Name       = "security-group01-${var.environment}"
+    Name       = "sg-alb-jenkins-${var.environment}"
     Owner      = "romulo"
     Managed-by = "terraform"
     Environment = "homolog"
@@ -157,7 +157,7 @@ resource "aws_security_group" "security_group_02" {
 }
 
 resource "aws_security_group" "seurity_group_03" {
-  name        = "launch-wizard-3-${var.environment}"
+  name        = "sg-instance-jenkins-${var.environment}"
   description = "Portas liberadas na instancia Jenkins"
   vpc_id      = aws_vpc.vpc-homo.id
 
@@ -170,7 +170,7 @@ resource "aws_security_group" "seurity_group_03" {
   }
 
   ingress {
-    description = "selenium-grid"
+    description = "Custom TCP"
     from_port   = 4444
     to_port     = 4444
     protocol    = "tcp"
@@ -199,7 +199,7 @@ resource "aws_security_group" "seurity_group_03" {
   }
 
   ingress {
-    description = "HTTP"
+    description = "Custom TCP"
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
@@ -214,7 +214,7 @@ resource "aws_security_group" "seurity_group_03" {
   }
 
   ingress {
-    description = "HTTPS"
+    description = "Custom TCP"
     from_port   = 8443
     to_port     = 8443
     protocol    = "tcp"
@@ -229,7 +229,7 @@ resource "aws_security_group" "seurity_group_03" {
   }
 
   tags = {
-    Name       = "security-group03-${var.environment}"
+    Name       = "sg-instance-jenkins-${var.environment}"
     Owner      = "romulo"
     Managed-by = "terraform"
     Environment = "homolog"
@@ -237,7 +237,7 @@ resource "aws_security_group" "seurity_group_03" {
   }
 }
 
-resource "aws_security_group" "seurity_group_04" {
+/*resource "aws_security_group" "seurity_group_04" {
   name        = "launch-wizard-4-${var.environment}"
   description = "Portas liberadas na instancia Bastion-Host"
   vpc_id      = aws_vpc.vpc-homo.id
@@ -263,7 +263,7 @@ resource "aws_security_group" "seurity_group_04" {
     Environment = "homolog"
     Datadog = "false"
   }
-}
+}*/
 
 resource "aws_security_group" "seurity_group_05" {
   name        = "rds-launch-wizard-${var.environment}"
