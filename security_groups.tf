@@ -1,6 +1,6 @@
 resource "aws_security_group" "security_group_01" {
   name        = "launch-wizard-1-${var.environment}"
-  description = "Permitir acesso ao load balancer jenkins"
+  description = "Permitir acesso ao load balancer"
   vpc_id      = aws_vpc.vpc-homo.id
 
   ingress {
@@ -43,7 +43,7 @@ resource "aws_security_group" "security_group_01" {
 
 resource "aws_security_group" "security_group_02" {
   name        = "launch-wizard-2-${var.environment}"
-  description = "Permitir acesso as portas customizadas instancia qa"
+  description = "Permitir acesso as portas customizadas"
   vpc_id      = aws_vpc.vpc-homo.id
 
   ingress {
