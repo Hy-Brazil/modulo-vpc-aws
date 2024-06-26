@@ -197,10 +197,26 @@ resource "aws_security_group" "seurity_group_03" {
     protocol    = "tcp"
     security_groups  = [aws_security_group.security_group_01.id]
   }
+
+  ingress {
+    description = "HTTP"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    security_groups  = [aws_security_group.security_group_01.id]
+  }
   ingress {
     description = "HTTPS"
     from_port   = 443
     to_port     = 443
+    protocol    = "tcp"
+    security_groups  = [aws_security_group.security_group_01.id]
+  }
+
+  ingress {
+    description = "HTTPS"
+    from_port   = 8443
+    to_port     = 8443
     protocol    = "tcp"
     security_groups  = [aws_security_group.security_group_01.id]
   }
