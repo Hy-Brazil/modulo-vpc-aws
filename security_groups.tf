@@ -1,5 +1,5 @@
 resource "aws_security_group" "security_group_01" {
-  name        = "sg-alb-${var.environment}"
+  name        = "aSG-alb-${var.environment}"
   description = "Permitir acesso ao load balancer jenkins"
   vpc_id      = aws_vpc.vpc-homo.id
   ingress {
@@ -25,7 +25,7 @@ resource "aws_security_group" "security_group_01" {
   }
 
   tags = {
-    Name       = "sg-alb-${var.environment}"
+    Name       = "aSG-alb-${var.environment}"
     Owner      = "romulo"
     Managed-by = "terraform"
     Environment = "homolog"
