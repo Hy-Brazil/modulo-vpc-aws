@@ -166,7 +166,7 @@ resource "aws_security_group" "seurity_group_03" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  /*ingress {
+  ingress {
     description = "HTTP"
     from_port   = 80
     to_port     = 80
@@ -195,7 +195,7 @@ resource "aws_security_group" "seurity_group_03" {
     to_port     = 8443
     protocol    = "tcp"
     security_groups  = [aws_security_group.security_group_01.id]
-  }*/
+  }
 
   egress {
     from_port   = 0
