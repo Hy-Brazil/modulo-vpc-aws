@@ -1,15 +1,7 @@
-/*resource "aws_security_group" "security_group_01" {
-  name        = "launch-wizard-1-${var.environment}"
+resource "aws_security_group" "security_group_01" {
+  name        = "sg-alb-${var.environment}"
   description = "Permitir acesso ao load balancer jenkins"
   vpc_id      = aws_vpc.vpc-homo.id
-
-  ingress {
-    description = "SSL"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
   ingress {
     description = "HTTP"
     from_port   = 80
@@ -33,13 +25,13 @@
   }
 
   tags = {
-    Name       = "security-group01-${var.environment}"
+    Name       = "sg-alb-${var.environment}"
     Owner      = "romulo"
     Managed-by = "terraform"
     Environment = "homolog"
     Datadog = "false"
   }
-}*/
+}
 
 resource "aws_security_group" "security_group_02" {
   name        = "launch-wizard-2-${var.environment}"
