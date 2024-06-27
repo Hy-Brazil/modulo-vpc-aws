@@ -1,5 +1,5 @@
 resource "aws_security_group" "security_group_01" {
-  name        = "asg-alb-${var.environment}"
+  name        = "launch-wizard-1-${var.environment}"
   description = "Permitir acesso ao load balancer jenkins"
   vpc_id      = aws_vpc.vpc-homo.id
 
@@ -33,7 +33,7 @@ resource "aws_security_group" "security_group_01" {
   }
 
   tags = {
-    Name       = "asg-alb-${var.environment}"
+    Name       = "launch-wizard-1-${var.environment}"
     Owner      = "romulo"
     Managed-by = "terraform"
     Environment = "homolog"
@@ -157,7 +157,7 @@ resource "aws_security_group" "security_group_02" {
 }
 
 resource "aws_security_group" "seurity_group_03" {
-  name        = "asg-jenkins-${var.environment}"
+  name        = "launch-wizard-3-${var.environment}"
   description = "Portas liberadas na instancia Jenkins"
   vpc_id      = aws_vpc.vpc-homo.id
 
@@ -229,7 +229,7 @@ resource "aws_security_group" "seurity_group_03" {
   }
 
   tags = {
-    Name       = "asg-jenkins-${var.environment}"
+    Name       = "launch-wizard-3-${var.environment}"
     Owner      = "romulo"
     Managed-by = "terraform"
     Environment = "homolog"
