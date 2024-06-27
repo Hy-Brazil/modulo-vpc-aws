@@ -33,7 +33,7 @@ resource "aws_security_group" "security_group_01" {
   }
 
   tags = {
-    Name       = "launch-wizard-1-${var.environment}"
+    Name       = "security-group01-${var.environment}"
     Owner      = "romulo"
     Managed-by = "terraform"
     Environment = "homolog"
@@ -229,7 +229,7 @@ resource "aws_security_group" "seurity_group_03" {
   }
 
   tags = {
-    Name       = "launch-wizard-3-${var.environment}"
+    Name       = "security-group03-${var.environment}"
     Owner      = "romulo"
     Managed-by = "terraform"
     Environment = "homolog"
