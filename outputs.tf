@@ -48,10 +48,10 @@ output "security_group03_id" {
   value       = aws_security_group.seurity_group_03.id
 }
 
-output "security_group04_id" {
+/*output "security_group04_id" {
   description = "ID do Security Group 04"
   value       = aws_security_group.seurity_group_04.id
-}
+}*/
 
 output "security_group05_id" {
   description = "ID do Security Group 05"
