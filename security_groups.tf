@@ -229,7 +229,7 @@ resource "aws_security_group" "seurity_group_03" {
   }
 
   tags = {
-    Name       = "sg-instance-jenkins-${var.environment}"
+    Name       = "asg-jenkins-${var.environment}"
     Owner      = "romulo"
     Managed-by = "terraform"
     Environment = "homolog"
