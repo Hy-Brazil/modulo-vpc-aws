@@ -1,5 +1,5 @@
 resource "aws_security_group" "security_group_01" {
-  name        = "sg-alb-jenkins-${var.environment}"
+  name        = "asg-alb-${var.environment}"
   description = "Permitir acesso ao load balancer jenkins"
   vpc_id      = aws_vpc.vpc-homo.id
 
@@ -33,7 +33,7 @@ resource "aws_security_group" "security_group_01" {
   }
 
   tags = {
-    Name       = "sg-alb-jenkins-${var.environment}"
+    Name       = "asg-alb-${var.environment}"
     Owner      = "romulo"
     Managed-by = "terraform"
     Environment = "homolog"
