@@ -3,14 +3,6 @@ resource "aws_security_group" "security_group_01" {
   description = "Permitir acesso ao load balancer jenkins"
   vpc_id      = aws_vpc.vpc-homo.id
   ingress {
-    description = "HTTP"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
     description = "HTTPS"
     from_port   = 443
     to_port     = 443
