@@ -157,7 +157,7 @@ resource "aws_security_group" "security_group_02" {
 }
 
 resource "aws_security_group" "seurity_group_03" {
-  name        = "sg-instance-jenkins-${var.environment}"
+  name        = "asg-jenkins-${var.environment}"
   description = "Portas liberadas na instancia Jenkins"
   vpc_id      = aws_vpc.vpc-homo.id
 
