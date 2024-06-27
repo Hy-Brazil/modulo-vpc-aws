@@ -1,4 +1,4 @@
-resource "aws_security_group" "security_group_01" {
+/*resource "aws_security_group" "security_group_01" {
   name        = "launch-wizard-1-${var.environment}"
   description = "Permitir acesso ao load balancer jenkins"
   vpc_id      = aws_vpc.vpc-homo.id
@@ -39,7 +39,7 @@ resource "aws_security_group" "security_group_01" {
     Environment = "homolog"
     Datadog = "false"
   }
-}
+}*/
 
 resource "aws_security_group" "security_group_02" {
   name        = "launch-wizard-2-${var.environment}"
